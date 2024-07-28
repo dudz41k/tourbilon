@@ -1,0 +1,141 @@
+
+.text-container > span {
+text-transform: uppercase;
+animation: glow 2.75s ease-in-out infinite;
+}
+
+@keyframes glow {
+0%, 100% {
+    color: #ffffff;
+    text-shadow: 0 0 10px #0652DD, 0 0 50px #0652DD, 0 0 100px #0652DD;
+}
+
+10%, 90% {
+    color: #0d6efd;
+    text-shadow: none;
+}
+}
+
+.text-container > span:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.text-container > span:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.text-container > span:nth-child(4) {
+    animation-delay: 0.75s;
+}
+
+.text-container > span:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.text-container > span:nth-child(6) {
+    animation-delay: 1.25s;
+}
+
+.text-container > span:nth-child(7) {
+    animation-delay: 1.5s;
+}
+
+.text-container > span:nth-child(8) {
+    animation-delay: 1.75s;
+}
+
+.text-container > span:nth-child(9) {
+    animation-delay: 2s;
+}
+
+.text-container > span:nth-child(10) {
+    animation-delay: 2.25s;
+}
+
+.text-container > span:nth-child(11) {
+    animation-delay: 2.5s;
+}
+/* Styles for spinning the image */
+:root {
+    --transform-distance: -100px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.img-spin {
+    animation: spin 8s linear infinite;
+}
+
+.animated-icon {
+    display: inline-block;
+    transition-timing-function: ease-in;
+    font-size: 2rem;
+    animation: rocket 10s infinite;
+}
+
+@keyframes rocket {
+    0% {
+        transform: translateY(0) rotate(0);
+        color: transparent;
+        box-shadow: none;
+    }
+    25% {
+        transform: translateY(0) rotate(0);
+        color: #0d6efd;
+        box-shadow: none;
+    }
+    50% {
+        transform: translateY(0) rotate(-90deg);
+        color: #0d6efd;
+        box-shadow: none;
+    }
+    90% {
+        transform: translateY(var(--transform-distance)) rotate(-90deg);
+        color: transparent;
+        box-shadow: none;
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+        color: transparent;
+        box-shadow: none;
+    }
+}
+
+@keyframes sail2 {
+    0% {
+        transform: translateX(0) rotate(0);
+        text-shadow: none;
+    }
+    30% {
+        transform: translateX(0) rotate(0);
+        text-shadow: none;
+    }
+    45% {
+        transform: translateX(var(--transform-distance)) rotate(0);
+        text-shadow: 0 0 30px 30px rgb(13, 110, 253); /* Glowing effect */
+    }
+    60% {
+        transform: translateX(var(--transform-distance)) rotate(180deg);
+        text-shadow: none;
+    }
+    75% {
+        transform: translateX(calc(-1 * var(--transform-distance))) rotate(180deg);
+        text-shadow: none;
+    }
+    85% {
+        transform: translateX(calc(-1 * var(--transform-distance))) rotate(360deg);
+        text-shadow: none;
+    }
+    100% {
+        transform: translateX(0) rotate(360deg);
+        text-shadow: none;
+    }
+}
+        

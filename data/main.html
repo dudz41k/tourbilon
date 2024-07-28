@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+        />
+        <!-- FONT AWESOME ICONS 4.7 -->
+        <script src="https://kit.fontawesome.com/17dd355774.js" crossorigin="anonymous"></script>
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" type="text/css" href="/styles.css">
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main>
+            <div class="container p-3 p-md-5">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10">
+                        <div class="card mb-3 shadow-lg" style="border-radius: 30px;border-width: 0;border-color: #0d6efd;">
+                            <div class="card-body">
+                                <div id="Header" class="text-center text-white py-4">
+                                    <h3 class="display-1 mb-0">
+                                        <div class="text-container">
+                                            <span>T</span>
+                                            <span>o</span>
+                                            <span>u</span>
+                                            <span>r</span>
+                                            <span>b</span>
+                                            <span>i</span>
+                                            <span>l</span>
+                                            <span>o</span>
+                                            <span>n</span>
+                                        </div>
+                                    </h3>
+                                    <p class="text-primary">
+                                        Made by: <i>Kamil Dudziak</i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow-lg mb-3 py-3" style="border-radius: 30px;border-width: 0;border-color: #0d6efd;">
+                            <div class="card-body">
+                                <div id="HeaderTwo" class="text-center text-primary">
+                                    <div class="row align-items-center">
+                                        <div class="col-12 col-md-6">
+                                            <h1 class="mb-0">
+                                                Centrum sterowania
+                                            </h1>
+                                            <p class="card-title">
+                                                Jaka prędkość obrotowa wariacie
+                                                <i class="fa-solid fa-question fa-spin"></i>
+                                            </p>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <button id="MoodBtn" class="btn btn-outline-primary btn-lg w-100" style="border-radius: 20px;">
+                                                <i class="fa-solid fa-user-astronaut"></i>
+                                                Zalecane przez Houston
+                                            </button>
+                                            <button id="TurbineBtn" class="btn btn-outline-primary mt-3 btn-lg w-100" style="border-radius: 20px;">
+                                                <i class="fa-solid fa-person-falling-burst"></i>
+                                                Soy un inginero!
+                                            </button>
+                                        </div>
+                                        <div id="ColSelTurbine" hidden>
+                                            <div class="row mt-4">
+                                                <div class="col-12 col-md-6 pt-md-0">
+                                                    <div class="card shadow" style="border-radius: 20px;border-width: 0;border-color: #0d6efd;">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-4">
+                                                                    <img class="img-fluid img-spin" src="bcd" alt="Title" />
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <h2 class="text-center text-primary display-6">
+                                                                        Turbina 1
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row justify-content-center mt-2">
+                                                                <div class="col-12 mt-2">
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text bg-primary text-white">
+                                                                            <h6 class="mb-0">
+                                                                                V<sub>α</sub>&nbsp;
+                                                                            </h6>
+                                                                        </span>
+                                                                        <select class="form-select" aria-label="Default select example">
+                                                                            <option selected disabled>RPM(t) / RPM(m)</option>
+                                                                            <option value="1">10/50 RPM</option>
+                                                                            <option value="2">15/75 RPM</option>
+                                                                            <option value="3">20/100 RPM</option>
+                                                                            <option value="4">25/125 RPM</option>
+                                                                            <option value="5">30/250 RPM</option>
+                                                                            <option value="6">35/275 RPM</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-2">
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text bg-primary text-white">
+                                                                            <h6 class="mb-0">
+                                                                                V<sub>dx</sub>
+                                                                            </h6>
+                                                                        </span>
+                                                                        <select class="form-select" aria-label="Default select example">
+                                                                            <option selected disabled>vdx [ m/s² ]</option>
+                                                                            <option value=""> const. </option>
+                                                                            <option value="1"> sin(α) </option>
+                                                                            <option value="3"> cos(α) </option>
+                                                                            <option value="1"> sin(2α) </option>
+                                                                            <option value="3"> cos(2α) </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-2">
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text bg-primary text-white">
+                                                                            <h6 class="mb-0">
+                                                                                <i class="fa-solid fa-clock-rotate-left mx-1"></i>
+                                                                            </h6>
+                                                                        </span>
+                                                                        <select class="form-select" aria-label="Default select example">
+                                                                            <option selected disabled>What is time?</option>
+                                                                            <option value="1"> Move toward future </option>
+                                                                            <option value="3"> Freeze! </option>
+                                                                            <option value="1"> Back to the '80 </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-2">
+                                                                    <button class="btn btn-lg btn-outline-primary w-100">
+                                                                        <i class="fa-solid fa-dragon fa-bounce"></i><br>
+                                                                        <p class="mb-0" style="font-size: 1rem;">
+                                                                            Programuj T1!
+                                                                        </p>
+                                                                    </button>   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 pt-md-0 pt-2">
+                                                    <div class="card shadow" style="border-radius: 20px;border-width: 0;border-color: #0d6efd;">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-4">
+                                                                    <img class="img-fluid img-spin" src="bcd" alt="Title" />
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <h2 class="text-center text-primary display-6">
+                                                                        Turbina 2
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row justify-content-center mt-2">
+                                                                <div class="col-12 mt-2">
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text bg-primary text-white">
+                                                                            <h6 class="mb-0">
+                                                                                V<sub>α</sub>&nbsp;
+                                                                            </h6>
+                                                                        </span>
+                                                                        <select class="form-select" aria-label="Default select example">
+                                                                            <option selected disabled>RPM(t) / RPM(m)</option>
+                                                                            <option value="1">10/50 RPM</option>
+                                                                            <option value="2">15/75 RPM</option>
+                                                                            <option value="3">20/100 RPM</option>
+                                                                            <option value="4">25/125 RPM</option>
+                                                                            <option value="5">30/250 RPM</option>
+                                                                            <option value="6">35/275 RPM</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-2">
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text bg-primary text-white">
+                                                                            <h6 class="mb-0">
+                                                                                V<sub>dx</sub>
+                                                                            </h6>
+                                                                        </span>
+                                                                        <select class="form-select" aria-label="Default select example">
+                                                                            <option selected disabled>vdx [ m/s² ]</option>
+                                                                            <option value=""> const. </option>
+                                                                            <option value="1"> sin(α) </option>
+                                                                            <option value="3"> cos(α) </option>
+                                                                            <option value="1"> sin(2α) </option>
+                                                                            <option value="3"> cos(2α) </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-2">
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text bg-primary text-white">
+                                                                            <h6 class="mb-0">
+                                                                                <i class="fa-solid fa-clock-rotate-left mx-1"></i>
+                                                                            </h6>
+                                                                        </span>
+                                                                        <select class="form-select" aria-label="Default select example">
+                                                                            <option selected disabled>What is time?</option>
+                                                                            <option value="1"> Move toward future </option>
+                                                                            <option value="3"> Freeze! </option>
+                                                                            <option value="1"> Back to the '80 </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-2">
+                                                                    <button class="btn btn-lg btn-outline-primary w-100">
+                                                                        <i class="fa-solid fa-otter fa-spin"></i>
+                                                                        <p class="mb-0" style="font-size: 1rem;">
+                                                                            Programuj T2!
+                                                                        </p>
+                                                                    </button>   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="ColMood" hidden>
+                                            <div class="row mt-4">
+                                                <div class="col-12">
+                                                    <div class="card shadow" style="border-radius: 20px;border-width: 0;border-color: #0d6efd;">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <h3 class="display-6 text-primary text-center">
+                                                                    Select mood for turbine!
+                                                                </h3>
+                                                                <div class="col-6">
+                                                                    <button class="btn btn-lg btn-outline-primary mt-3 w-100"> 
+                                                                        <i class="fa-solid fa-face-smile-beam fa-spin"></i>
+                                                                    </button>
+                                                                    <button class="btn btn-lg btn-outline-primary mt-3 w-100"> 
+                                                                        <i class="fa-solid fa-face-laugh-beam fa-spin"></i>
+                                                                    </button>
+                                                                    <button class="btn btn-lg btn-outline-primary mt-3 w-100"> 
+                                                                        <i class="fa-solid fa-face-grin-tongue-wink fa-spin"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <button class="btn btn-lg btn-outline-primary mt-3 w-100"> 
+                                                                        <i class="fa-solid fa-face-grin-stars fa-spin"></i>
+                                                                    </button>
+                                                                    <button class="btn btn-lg btn-outline-primary mt-3 w-100"> 
+                                                                        <i class="fa-solid fa-face-flushed fa-spin"></i>
+                                                                    </button>
+                                                                    <button class="btn btn-lg btn-outline-primary mt-3 w-100"> 
+                                                                        <i class="fa-solid fa-face-dizzy fa-spin"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <div class="card shadow-lg mb-3 py-3" style="border-radius: 30px;border-width: 0;border-color: #0d6efd;">
+                            <div class="card-body">
+                                <div id="HeaderTwo" class="text-primary">
+                                    <div class="row align-items-center">
+                                        <div class="col-12 col-md-6 p-5">
+                                            <img src="bcd" class="img-fluid img-center">
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <h1 class="text-center">
+                                                O projekcie 
+                                                <i class="fa-solid fa-shuttle-space animated-icon"></i>
+                                            </h1>
+                                            <p class="mt-3 px-4" style="text-align: justify;">
+                                                Sztuka kinetycza, wprawiająca w nieprzewidywalny ruch postrzeganie przestrzenne. Tourbilon to dwa wprawione w przewidywalny ruch obrotowy, specjalnie zaporjektowane 
+                                                wirniki tworzące nieprzewidywalne oddziaływanie kształtów i cieni.  
+                                            </p>
+                                            <div class="text-center">
+                                                <button id="MoodBtn" class="btn btn-outline-primary mt-3" style="border-radius: 20px;">
+                                                    <i class="fa-regular fa-newspaper"></i>
+                                                    Przeczytaj więcej
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        
+                        <p class="text-center mt-5">
+                            Is it a Bird <i class="fa-solid fa-dove fa-bounce"></i> ?
+                             Is it a Plane <i class="fa-solid fa-plane fa-flip"></i> ?<br>
+                             No, it is a T <i class="fa-solid fa-hurricane fa-spin"></i> urbill <i class="fa-solid fa-hurricane fa-spin"></i> n!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Link to external JavaScript file -->
+        <script src="/scripts.js"></script>
+    </body>
+</html>
