@@ -12,6 +12,9 @@
 3. Hardware
     1. Components
     2. PCB
+        1. ESP32 S3 DEVKIT C1 
+        2. TMC2209
+        3. I2C OLED SCREEN
 4. Construction 
     1. 3D Printed
     2. Other
