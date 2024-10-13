@@ -63,11 +63,11 @@ const int max_accel_ma = 1000;
 int move_matrix_accelstepper_ma[7][3] = {
     {0, max_speed_ma, max_accel_ma},
     {4000, max_speed_ma, max_accel_ma},
-    {0, max_speed_ma, max_accel_ma},
-    {4000, max_speed_ma, max_accel_ma},
-    {0, max_speed_ma, max_accel_ma},
-    {4000, max_speed_ma, max_accel_ma},
-    {0, max_speed_ma, max_accel_ma},
+    {8000, max_speed_ma, max_accel_ma},
+    {12000, max_speed_ma, max_accel_ma},
+    {16000, max_speed_ma, max_accel_ma},
+    {20000, max_speed_ma, max_accel_ma},
+    {24000, max_speed_ma, max_accel_ma},
 };
 
 const int max_speed_mb = 1000;
@@ -75,11 +75,11 @@ const int max_accel_mb = 1000;
 
 int move_matrix_accelstepper_mb[7][3] = {
     {0, max_speed_mb, max_accel_mb},
-    {-2000, max_speed_mb, max_accel_mb},
+    {-100, max_speed_mb, max_accel_mb},
     {0, max_speed_mb, max_accel_mb},
-    {2000, max_speed_mb, max_accel_mb},
+    {100, max_speed_mb, max_accel_mb},
     {0, max_speed_mb, max_accel_mb},
-    {-2000, max_speed_mb, max_accel_mb},
+    {-100, max_speed_mb, max_accel_mb},
     {0, max_speed_mb, max_accel_mb},
 };
 
@@ -98,6 +98,8 @@ const char* password = "wszyscykochajomAlurka1!";
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 
 unsigned long previous_milis = 0;
+QueueHandle_t motorQueueA;
+QueueHandle_t motorQueueB;
 
 WebServer server(80);           // Set web server port number to 80
 Adafruit_NeoPixel ws2812b(NUM_PIXELS, PIN_WS2812B, NEO_GRB + NEO_KHZ800);
@@ -426,6 +428,45 @@ SerialPrinter serial_printer;
 StepperClass stepper_controller;
 OledClass oled_controller;
 
+
+struct MotorCommand {
+  String motor;
+  String matrix;
+};
+
+void stepperTask(void *parameter) {
+    MotorCommand command;
+
+    while (true) {
+        // Wait for a command from either motorQueueA or motorQueueB
+        if (xQueueReceive(motorQueueA, &command, 0)) {
+            if (command.matrix == "M1") {
+                stepper_controller.move_a(move_matrix_accelstepper_na, 7);
+            } else if (command.matrix == "M2") {
+                stepper_controller.move_a(move_matrix_accelstepper_ma, 7);
+            }else if (command.matrix == "M3") {
+                stepper_controller.move_a(move_matrix_accelstepper_mb, 7);
+            }else if (command.matrix == "M4") {
+                stepper_controller.move_a(move_matrix_accelstepper_mb, 7);
+            }
+        }
+
+        if (xQueueReceive(motorQueueB, &command, 0)) {
+            if (command.matrix == "M1") {
+                stepper_controller.move_b(move_matrix_accelstepper_nb, 7);
+            } else if (command.matrix == "M2") {
+                stepper_controller.move_b(move_matrix_accelstepper_mb, 7);
+            }else if (command.matrix == "M3") {
+                stepper_controller.move_b(move_matrix_accelstepper_ma, 7);
+            }else if (command.matrix == "M4") {
+                stepper_controller.move_b(move_matrix_accelstepper_ma, 7);
+            }
+        }
+
+        vTaskDelay(1);  // To avoid blocking
+    }
+}
+
 void RTOS_task_alternate_screen(void *parameter) {
     for(;;){
         // displayTurbineScreen1(120, "sin(x)", "CLOCKWISE", "ACTIVE");
@@ -450,26 +491,29 @@ void ROTS_task_led_handler(void *parameter){
 }
 
 void ROTS_task_stepper_motor_A(void *parameter){
-    // execute seetings based on some parameter linke what matrix to use
-    Serial.println("MOVING STEPPER MOTORS FOR A MATRIX");
-
-    for(;;){
-        stepper_controller.move_a(move_matrix_accelstepper_na, 7);
-        // moveMotor(move_matrix_accelstepper_na, 7, "A");
-        Serial.println("MOTOR A FINISHED MATRIX - WAITING 10s FOR RESTART");
-        vTaskDelay(10000 / portTICK_PERIOD_MS);
+    MotorCommand command;
+    while (true) {
+        if (xQueueReceive(motorQueueA, &command, 0)) {
+            if (command.matrix == "M1") { stepper_controller.move_a(move_matrix_accelstepper_na, 7); } 
+            else if (command.matrix == "M2") { stepper_controller.move_a(move_matrix_accelstepper_ma, 7); }
+            else if (command.matrix == "M3") { stepper_controller.move_a(move_matrix_accelstepper_mb, 7); }
+            else if (command.matrix == "M4") { stepper_controller.move_a(move_matrix_accelstepper_mb, 7); }
+        }
+        vTaskDelay(1);  
     }
-    
 }
 
 void ROTS_task_stepper_motor_B(void *parameter){
-    for(;;){
-        stepper_controller.move_b(move_matrix_accelstepper_nb, 7);
-        // moveMotor(move_matrix_accelstepper_nb, 7, "B");
-        Serial.println("MOTOR B FINISHED MATRIX - WAITING 10s FOR RESTART");
-        vTaskDelay(10000 / portTICK_PERIOD_MS);
+    MotorCommand command;
+    while (true) {
+        if (xQueueReceive(motorQueueB, &command, 0)) {
+            if (command.matrix == "M1") { stepper_controller.move_b(move_matrix_accelstepper_na, 7); } 
+            else if (command.matrix == "M2") { stepper_controller.move_b(move_matrix_accelstepper_ma, 7); }
+            else if (command.matrix == "M3") { stepper_controller.move_b(move_matrix_accelstepper_mb, 7); }
+            else if (command.matrix == "M4") { stepper_controller.move_b(move_matrix_accelstepper_mb, 7); }
+        }
+        vTaskDelay(1);  
     }
-    
 }
 
 void setup_sequence_TMC2209(){
@@ -528,58 +572,7 @@ void setup_sequence_TMC2209(){
     stepper_driver_0.moveAtVelocity(0);
     stepper_driver_1.moveAtVelocity(0);
 }
-
-// void moveMotor(int move_matrix[][3], int rows, String motor ) {
-//     // Iterate through the move matrix
-//     if (motor == "A"){
-//         for (int i = 0; i < rows; i++) {
-//             // Get target positions and max speeds from the matrix
-//             int target_position_1 = move_matrix[i][0];
-//             int max_speed_1 = move_matrix[i][1];
-//             int accel_1 = move_matrix[i][2];
-
-//             stepper1.setMaxSpeed(max_speed_1);
-//             stepper1.setAcceleration(accel_1);
-//             stepper1.moveTo(target_position_1);
-
-//             Serial.print("(A) x: ");
-//             Serial.print(target_position_1);
-//             Serial.print("v: ");
-//             Serial.print(max_speed_1);
-//             Serial.print("a: ");
-//             Serial.println(accel_1);
-
-//             while (stepper1.currentPosition() != target_position_1) {
-//                 stepper1.run();
-//                 vTaskDelay(1);
-//             }
-//         }
-//     } else {
-//         for (int i = 0; i < rows; i++) {
-//             int target_position_2 = move_matrix[i][0];
-//             int max_speed_2 = move_matrix[i][1];
-//             int accel_2 = move_matrix[i][2];
-
-//             stepper2.setMaxSpeed(max_speed_2);
-//             stepper2.setAcceleration(accel_2);
-//             stepper2.moveTo(target_position_2);
-
-//             Serial.print("(B) x: ");
-//             Serial.print(target_position_2);
-//             Serial.print("v: ");
-//             Serial.print(max_speed_2);
-//             Serial.print("a: ");
-//             Serial.println(accel_2);
-
-//             // Non-blocking movement, wait for both motors to reach their positions
-//             while (stepper2.currentPosition() != target_position_2) {
-//                 stepper2.run();
-//                 vTaskDelay(1);
-//             }
-//         }
-//     }
-// }   
-
+ 
 void setup() {
     serial_printer.printMessage1();
 
@@ -605,11 +598,17 @@ void setup() {
 
     delay(1000);
 
+    motorQueueA = xQueueCreate(5, sizeof(MotorCommand));
+    motorQueueB = xQueueCreate(5, sizeof(MotorCommand));
+
     // CREATE RTOS TASKS FOR ESP32 FOR SECOND CORE (CORE 0 - FIRST CORE - BY DEFAULT IS RESERVED FOR HANDLING WEB SERVER)
+    // xTaskCreatePinnedToCore(stepperTask, "Stepper Task", 8192, NULL, 1, NULL, 1);  // Run on Core 1
     xTaskCreate(RTOS_task_alternate_screen, "OLED SCREEN TASK", 4096, NULL, 1, NULL);
     xTaskCreate(ROTS_task_led_handler, "LED STRIP TASK", 4096, NULL, 1, NULL);
-    xTaskCreate(ROTS_task_stepper_motor_A, "STEPPER A MOTOR TASK", 8192, NULL, 1, NULL);
-    xTaskCreate(ROTS_task_stepper_motor_B, "STEPPER B MOTOR TASK", 8192, NULL, 1, NULL);
+    xTaskCreatePinnedToCore(ROTS_task_stepper_motor_A, "STEPPER A MOTOR TASK", 8192, NULL, 1, NULL, 1);
+    xTaskCreatePinnedToCore(ROTS_task_stepper_motor_B, "STEPPER B MOTOR TASK", 8192, NULL, 1, NULL, 1);
+    // xTaskCreate(ROTS_task_stepper_motor_A, "STEPPER A MOTOR TASK", 8192, NULL, 1, NULL);
+    // xTaskCreate(ROTS_task_stepper_motor_B, "STEPPER B MOTOR TASK", 8192, NULL, 1, NULL);
 
 }
 
@@ -619,8 +618,20 @@ void loop() {
 
 void webServerStartUp(){
     // HOSTING ROUTES
-    server.on("/", HTTP_GET, handleRoot);
-    server.on("/about", HTTP_GET, handleAbout);
+    server.on("/set", HTTP_GET, handleSetParameters);
+    server.on("/settings", HTTP_GET, handleSetSettings);
+    
+    // server.on("/", HTTP_GET, handleRoot);
+    // server.on("/about", HTTP_GET, handleAbout);
+    server.on("/", HTTP_GET, []() {
+        handleFileRequest("/main.html", "text/html");
+    });
+    server.on("/about", HTTP_GET, []() {
+        handleFileRequest("/about.html", "text/html");
+    });
+    server.on("/control", HTTP_GET, []() {
+        handleFileRequest("/control.html", "text/html");
+    });
 
     // HOSTING STATIC FILES
     server.on("/styles.css", HTTP_GET, []() {
@@ -653,12 +664,36 @@ void handleFileRequest(const char* path, const char* mimeType) {
     file.close();
 }
 
-void handleRoot() {
-    handleFileRequest("/main.html", "text/html");
+void handleSetParameters(){
+    MotorCommand command;
+    command.motor = server.arg("motor");
+    command.matrix = server.arg("matrix");
+    
+    if (command.motor == "A") { xQueueSend(motorQueueA, &command, portMAX_DELAY); } 
+    else if (command.motor == "B") { xQueueSend(motorQueueB, &command, portMAX_DELAY); }
+    
+    handleFileRequest("/set.html", "text/html");
 }
 
-void handleAbout() {
-    handleFileRequest("/about.html", "text/html");
+void handleSetSettings(){
+    MotorCommand command;
+    command.motor = server.arg("motor");
+    command.matrix = server.arg("matrix");
+
+    // xQueueSend(motorQueue, &command, portMAX_DELAY);
+
+    // Serial.print("Motor parameter: " + motor + "Matrix: " + matrix );
+    
+    // if (motor == "A") {
+    //     if (matrix == "matrix1") {stepper_controller.move_a(move_matrix_accelstepper_na, 3);} 
+    //     else if (matrix == "matrix2") {stepper_controller.move_a(move_matrix_accelstepper_ma, 3);}
+    // } else if (motor == "B") {
+    //     if (matrix == "matrix1") {stepper_controller.move_b(move_matrix_accelstepper_nb, 3);} 
+    //     else if (matrix == "matrix2") {stepper_controller.move_b(move_matrix_accelstepper_mb, 3);} 
+    // }
+
+    // Send a basic response back to the client
+    server.send(200, "text/plain", "Motor " + command.motor + " set to " + command.matrix);
 }
 
 // // Initialize GPIO pins

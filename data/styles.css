@@ -1,3 +1,58 @@
+.nav-link-active{
+    display: inline-block;
+    padding: 10px;
+    color: #220d5e;
+    text-decoration: none;
+    position: relative; /* Necessary for the ::after pseudo-element */
+    transition: color 0.3s ease;
+}
+.nav-link {
+    display: inline-block;
+    padding: 10px;
+    color: #ef08ff;
+    text-decoration: none;
+    position: relative; /* Necessary for the ::after pseudo-element */
+    transition: color 0.3s ease;
+}
+
+/* This is the progressive underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #dff7ff; /* Change to your desired underline color */
+    transition: width 0.5s ease;
+}
+
+/* Shaking animation */
+@keyframes shakeer {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Hover effect */
+.nav-link:hover {
+    color: #4a08ff; /* Change to your desired hover color */
+    animation: shakeer 0.5s ease-in-out; /* Apply the shaking animation */
+}
+
+/* Underline grows progressively on hover */
+.nav-link:hover::after {
+    width: 100%;
+}
 
 .text-container > span {
 text-transform: uppercase;
@@ -57,7 +112,8 @@ animation: glow 2.75s ease-in-out infinite;
 }
 /* Styles for spinning the image */
 :root {
-    --transform-distance: -100px;
+    --transform-distance: 100px;
+    --transform-distance-flight: -20px;
 }
 
 @keyframes spin {
@@ -80,33 +136,104 @@ animation: glow 2.75s ease-in-out infinite;
     animation: rocket 10s infinite;
 }
 
+.icon-indicate {
+    animation: indicate 2s infinite;
+}
+
+.icon-carry {
+    transform-origin: left bottom;
+    animation: carry 15s infinite ease-out;
+}
+
 @keyframes rocket {
     0% {
-        transform: translateY(0) rotate(0);
+        transform: translateY(0) rotate(-90deg);
         color: transparent;
         box-shadow: none;
     }
     25% {
-        transform: translateY(0) rotate(0);
-        color: #0d6efd;
-        box-shadow: none;
-    }
-    50% {
         transform: translateY(0) rotate(-90deg);
         color: #0d6efd;
         box-shadow: none;
     }
+    50% {
+        transform: translateY(0) rotate(0deg);
+        color: #0d6efd;
+        box-shadow: none;
+    }
     90% {
-        transform: translateY(var(--transform-distance)) rotate(-90deg);
+        transform: translateY(var(--transform-distance-flight)) translateX(var(--transform-distance)) rotate(-30deg);
         color: transparent;
         box-shadow: none;
     }
     100% {
-        transform: translateY(0) rotate(0);
+        transform: translateX(0) rotate(-90deg);
         color: transparent;
         box-shadow: none;
     }
 }
+
+@keyframes carry {
+    /* Icon gradually appears */
+    0% { transform: rotate(0deg) translateX(0); color: #595c5f; }
+    5% { transform: rotate(0deg) translateX(0); color: #595c5f; } /* Icon appears */
+
+    /* Pause in place for a longer duration */
+    20% { transform: rotate(0deg) translateX(0); color: #595c5f; }
+
+    /* Start rotating */
+    25% { transform: rotate(195deg) translateX(0); color: #0d6efd}
+    35% { transform: rotate(90deg) translateX(0); color: #0d6efd}
+    50% { transform: rotate(155deg) translateX(0); color: #0d6efd}
+    70% { transform: rotate(120deg) translateX(0); color: #0d6efd}
+    85% { transform: rotate(135deg) translateX(0); color: rgb(238, 164, 17);}
+
+    /* Start the falling movement */
+    99% { transform: rotate(-120deg) translateX(400px); color: rgb(252, 252, 252); }
+    100% { transform: rotate(-120deg) translateX(400px); color: transparent; } /* Falling and fading out */
+}
+
+@keyframes orbit {
+    /* Start at the left side of the orbit */
+    0% { 
+        color: #6b6f73; /* Start with blue */
+    }
+
+    /* Rotate to the right side (icon at the back) */
+    50% { 
+        color: transparent; /* Change to gray */
+    }
+
+    /* Complete the orbit (back to the start) */
+    100% { 
+        color: #6b6f73; /* Back to blue */
+    }
+}
+
+.orbit-gum {
+    width: 50px; /* Example size */
+    height: 50px;
+    animation: orbit 5s linear infinite; /* Full orbit every 5 seconds */
+    transform-origin: center; /* Spin around the Y-axis */
+}
+
+
+
+@keyframes indicate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    33% {
+        transform: rotateZ(-10deg);
+    }
+    66% {
+        transform: rotateZ(20deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
 
 @keyframes sail2 {
     0% {

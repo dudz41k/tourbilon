@@ -18,37 +18,93 @@
         />
         <!-- FONT AWESOME ICONS 4.7 --> 
         <script src="https://kit.fontawesome.com/17dd355774.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="/styles.css">
     </head>
 
     <body>
         <header>
-            <!-- place navbar here -->
+            <nav class="navbar navbar-light  navbar-expand-md justify-content-center">
+                <div class="container">
+                    <a href="/" class="navbar-brand d-flex me-auto">
+                        <img src="https://clipground.com/images/circle-logo-png-7.png" class="img-spin" style="max-height: 100px;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+                        <!-- <ul class="navbar-nav w-100 justify-content-center">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="//codeply.com">Codeply</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                        </ul> -->
+                        <ul class="nav navbar-nav ms-auto w-100 h5 justify-content-end">
+                            <li class="nav-item ms-4">
+                                <a href="/" class="nav-link">
+                                    <i class="fa-solid fa-warehouse"></i> Strona Główna
+                                </a>
+                            </li>
+                            <li class="nav-item ms-4">
+                                <a href="/control" class="nav-link">
+                                    <i class="fa-solid fa-user-astronaut"></i> Centrum Sterowania
+                                </a>
+                            </li>
+                            <li class="nav-item ms-4">
+                                <a href="/about" class="nav-link-active">
+                                    <i class="fa-brands fa-github"></i> O projekcie
+                                </a>
+                            </li>
+                            <li class="nav-item ms-4">
+                                <a href="/settings" class="nav-link">
+                                    <i class="fa-solid fa-gears"></i> Ustawienia
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </header>
         <main>
             <div class="container p-3 p-md-5">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-3 text-primary text-center">
-                        <img src="bcd" class="img-fluid">
-                    </div>
-                </div>
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10">
+                        <h3 class="display-1 text-center mb-0 text-primary">
+                            Was is das<i>?!</i>
+                        </h3>
+                        <p class="px-5 text-primary mb-5 text-center">
+                            <i>Tourbilon!</i>
+                        </p>
                         <div class="card mb-5 shadow-lg" style="border-radius: 30px;border-width: 0;border-color: #0d6efd;">
                             <div class="card-body">
                                 <div class="row justify-content-center align-items-center">
-                                    <div class="col-6">
-                                        <h3 class="display-4 text-center mb-0 text-primary">
-                                            Was is das?
+                                    <div class="col-12 col-md-6">
+                                        <h3 class="display-5 text-center mb-0 text-primary">
+                                            You spin me baby
+                                            <i class="fa-solid fa-circle-exclamation img-spin"></i>
                                         </h3>
-                                        <p class="px-5 text-primary text-center">
-                                            <i>Tourbilon!</i>
+                                        <p class="px-5 display-6 text-primary mb-4" style=" font-size: 0.9rem;">
+                                            <i>~ Frankenstent zubdowany zbudowany z drukarki 3D</i>
                                         </p>
-                                        <h6 class="px-5 text-primary" style="text-align: justify;">
-                                            Yout spine me bady ringtu how adshj aslkdjflk ajhsdlkfjl aljskdflkja asjdflk saljdflkj klasjdf a asldjkflkjsa kkkda <br><br>
-                                            sdhjfkhjsadkhfkjha sadjhfkj asdjhfjk  jdjjjjads jkdsakf ask
+                                        <h6 class="px-5 text-primary mb-4" style="text-align: center;">
+                                        <i class="fa-solid fa-explosion fa-rotate-270"></i>
+                                            R.I.P. Ender 3 Pro
+                                            <i class="fa-solid fa-explosion fa-rotate-90"></i>
                                         </h6>
+                                        <p class="px-md-5 text-primary" style="text-align: justify;">
+                                            W odróżnieniu 
+                                            od swojego pierwowzoru (David C. Roy - Infinity) tourbilon wykorzutuje silniki elektryczne.
+                                            Dopóki elektorny zapierdalają w przewodach, silniki się nie przegrzewają, sterowniki się nie zepsuły,
+                                            system operacyjny się nie wypierdoli na dodawaniu tekstu do liczb, esp nie postanowi się wykrzaczyć i zimne 
+                                            luty nie dadzą o sobie znać ta maszyna będzie działać wiecznie - czyli zazwyczaj. 
+                                        </p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6">
                                         <img src="bcd" class="img-fluid p-5">
                                     </div>
                                 </div>
@@ -57,27 +113,20 @@
                                         <hr class="mx-5 text-primary">
                                     </div>
                                     <div class="col-11 pt-3">
-                                        <ul class="list-group list-group-flush">
+                                        <ul class="list-group list-group-flush text-center">
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 <div class="row w-100 align-items-center">
                                                     <h4 class="display-6 text-primary text-center ms-4 mb-3">
                                                         1. Elektronika
                                                     </h4>
-                                                    <div class="col-5 ps-4 text-primary text-center">
+                                                    <div class="col-6 ps-md-4 text-primary text-center">
                                                         <h6 class="mb-0 text-primary">
                                                             <i>
                                                                 Komponent
                                                             </i>
                                                         </h6>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center text-center">
-                                                        <h6 class="mb-0 text-primary">
-                                                            <i>
-                                                                Funkcja
-                                                            </i>
-                                                        </h6>
-                                                    </div>
-                                                    <div class="col-4 text-center text-center">
+                                                    <div class="col-6 text-center">
                                                         <h6 class="mb-0 text-primary">
                                                             <i>
                                                                 Info
@@ -88,18 +137,16 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             ESP-32-DEVKITC1-S3
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-brain"></i>
                                                             Microcontroller
                                                         </span>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i class="fa-solid fa-brain"></i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">5V<sub>DC-IN</sub></span>
                                                         <span class="badge text-bg-success rounded-pill">3.3V<sub>LOGIC</sub></span>
                                                     </div>
@@ -107,36 +154,32 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             OLED 0.96"
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-display"></i>
                                                             Screen
                                                         </span>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i class="fa-solid fa-display"></i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-success rounded-pill">3.3V<sub>LOGIC</sub></span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             LM2596 
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-fire"></i>
                                                             Step-Down DC-DC Converter
                                                         </span>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i class="fa-solid fa-fire"></i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-warning rounded-pill">12V<sub>DC-IN</sub></span>
                                                         <span class="badge text-bg-primary rounded-pill">5V<sub>DC-OUT</sub></span>
                                                     </div>
@@ -144,18 +187,16 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             WS2812B 
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-regular fa-lightbulb"></i>
                                                             Individually Addressable LED Strip
                                                         </span>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i class="fa-regular fa-lightbulb"></i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">5V<sub>DC-POWER</sub></span>
                                                         <span class="badge text-bg-primary rounded-pill">5V<sub>DC-LOGIC</sub></span>
                                                     </div>
@@ -163,21 +204,16 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             BSS138<br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-microchip"></i>
                                                             LLC - Logic Level Converter
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-microchip"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">5V<sub>LOGIC</sub></span>
                                                         <span class="badge text-bg-success rounded-pill">3.3V<sub>LOGIC</sub></span>
                                                     </div>
@@ -185,60 +221,51 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
-                                                            PWM PC FAN 
+                                                            PWM PC FAN <i class="fa-solid fa-recycle text-success"></i>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-fan"></i>
                                                             Cheap Cooling bby!
                                                         </span>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i class="fa-solid fa-fan"></i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-warning rounded-pill">12V<sub>DC-POWER</sub></span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
-                                                            2 x 42HS40-005B<br>
+                                                            2 x 42HS40-005B
+                                                            <i class="fa-solid fa-recycle text-success"></i>
+                                                            <br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-bolt"></i>
                                                             Stepper Motor typ. NEMA 17 (SM)
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-bolt"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-warning rounded-pill">12V<sub>DC-POWER</sub></span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             2 x TMC2009<br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-wand-sparkles"></i>
                                                             Super Silent SM Drivers
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-wand-sparkles"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-warning rounded-pill">12V<sub>DC-POWER</sub></span>
                                                         <span class="badge text-bg-primary rounded-pill">5V<sub>LOGIC</sub></span>
                                                     </div>
@@ -246,21 +273,17 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
-                                                            2 x SONGLE RELAY<br>
+                                                            2 x SONGLE RELAY <i class="fa-solid fa-recycle text-success"></i><br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-volume-high"></i>
                                                             12V SM Line Cut-Off
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-volume-high"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-warning rounded-pill">12V<sub>DC-POWER</sub></span>
                                                         <span class="badge text-bg-warning rounded-pill">12V<sub>DC-SIGNAL</sub></span>
                                                     </div>
@@ -271,21 +294,14 @@
                                                     <h4 class="display-6 text-primary text-center ms-4 mb-3 mt-4">
                                                         2. Konstrukcja
                                                     </h4>
-                                                    <div class="col-5 ps-4 text-primary text-center">
+                                                    <div class="col-6 ps-md-4 text-primary text-center">
                                                         <h6 class="mb-0 text-primary">
                                                             <i>
                                                                 Komponent
                                                             </i>
                                                         </h6>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center text-center">
-                                                        <h6 class="mb-0 text-primary">
-                                                            <i>
-                                                                Funkcja
-                                                            </i>
-                                                        </h6>
-                                                    </div>
-                                                    <div class="col-4 text-center text-center">
+                                                    <div class="col-6 text-center text-center">
                                                         <h6 class="mb-0 text-primary">
                                                             <i>
                                                                 Info
@@ -296,105 +312,82 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
-                                                            6 x PROFIL ALUMINOWY<br>
+                                                            6 x PROFIL ALUMINOWY
+                                                            <i class="fa-solid fa-recycle text-success"></i>
+                                                            <br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-pallet fa-rotate-90"></i>
                                                             Typ: V-Slot 
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-pallet fa-beat"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">20 x 20 [mm]</span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             2 x FAG 6008-2RS<br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-compact-disc fa-spin"></i>
                                                             Łożysko Kulowe - Jednorzędowe - Wał
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-compact-disc fa-spin"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">40<sub>Φ</sub> x 68<sub>Φ</sub> x 15 [mm]</span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             2 x FAG 6002-2RS<br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-compact-disc fa-spin"></i>
                                                             Łożysko Kulowe - Jednorzędowe - Wał
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-compact-disc fa-spin"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">15<sub>Φ</sub> x 32<sub>Φ</sub> x 9 [mm]</span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
-                                                            2 x FAG 608-ZZ<br>
+                                                            4 x FAG 608-ZZ <i class="fa-solid fa-recycle text-success"></i><br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-compact-disc fa-spin"></i>
                                                             Łożysko Kulowe - Jednorzędowe - Napinacz
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-compact-disc fa-spin"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">8<sub>Φ</sub> x 22<sub>Φ</sub> x 7 [mm]</span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             2 x HTD 1200-5M-09Z240 <br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
+                                                            <i class="fa-solid fa-arrow-down-up-across-line fa-flip"></i>
                                                             Rozrząd - Pas Zębaty - Synchroniczny
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-arrow-down-up-across-line fa-flip"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
+                                                    <div class="col-6 text-center">
                                                         <span class="badge text-bg-primary rounded-pill">1200 x 9 [mm]</span>
                                                     </div>
                                                 </div>
@@ -404,21 +397,14 @@
                                                     <h4 class="display-6 text-primary text-center ms-4 mb-3 mt-4">
                                                         3. Elementy Drukowane
                                                     </h4>
-                                                    <div class="col-5 ps-4 text-primary text-center">
+                                                    <div class="col-6 ps-md-4 text-primary text-center">
                                                         <h6 class="mb-0 text-primary">
                                                             <i>
                                                                 Komponent
                                                             </i>
                                                         </h6>
                                                     </div>
-                                                    <div class="col-3 text-primary text-center text-center">
-                                                        <h6 class="mb-0 text-primary">
-                                                            <i>
-                                                                Trudność
-                                                            </i>
-                                                        </h6>
-                                                    </div>
-                                                    <div class="col-4 text-center text-center">
+                                                    <div class="col-6 text-center text-center">
                                                         <h6 class="mb-0 text-primary">
                                                             <i>
                                                                 Info
@@ -429,32 +415,33 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-12 col-md-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             Obudowa <br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
-                                                            3 Komponenty
+                                                            - Ramie wysięgnika
+                                                            - Dyfuzor -<br>
+                                                            - Mocowanie A/B -
                                                         </span>
-                                                        
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <span class="badge text-bg-primary rounded-pill">
-                                                            <i class="fa-solid fa-cube"></i> ~ 30h
+                                                    <div class="col-12 col-md-6 text-center">
+                                                        <span class="badge text-bg-primary rounded-pill px-4 py-2 position-relative">
+                                                            <i class="fa-solid fa-cube"></i> 30h 
+                                                            <i class="fa-solid fa-broom ms-3"></i> 0.16mm 
+                                                            <i class="fa-solid fa-weight-hanging ms-3"></i> 10g 
+                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                                                <i class="fa-solid fa-star"></i>
+                                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                <i class="fa-regular fa-star"></i>
+                                                              </span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-12 col-md-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             WAŁ<sub>(A)</sub><br>
                                                         </h5>
@@ -463,23 +450,23 @@
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <span class="badge text-bg-primary rounded-pill">
-                                                            <i class="fa-solid fa-cube"></i> ~ 2h
+                                                    <div class="col-12 col-md-6 text-center">
+                                                        <span class="badge text-bg-primary rounded-pill px-4 py-2 position-relative">
+                                                            <i class="fa-solid fa-cube"></i> 30h 
+                                                            <i class="fa-solid fa-broom ms-3"></i> 0.16mm 
+                                                            <i class="fa-solid fa-weight-hanging ms-3"></i> 10g 
+                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                                                <i class="fa-solid fa-star"></i>
+                                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                <i class="fa-regular fa-star"></i>
+                                                              </span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-12 col-md-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             WAŁ<sub>(B)</sub><br>
                                                         </h5>
@@ -488,48 +475,48 @@
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <span class="badge text-bg-primary rounded-pill">
-                                                            <i class="fa-solid fa-cube"></i> ~ 3h
+                                                    <div class="col-12 col-md-6 text-center">
+                                                        <span class="badge text-bg-primary rounded-pill px-4 py-2 position-relative">
+                                                            <i class="fa-solid fa-cube"></i> 30h 
+                                                            <i class="fa-solid fa-broom ms-3"></i> 0.16mm 
+                                                            <i class="fa-solid fa-weight-hanging ms-3"></i> 10g 
+                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                                                <i class="fa-solid fa-star"></i>
+                                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                <i class="fa-regular fa-star"></i>
+                                                              </span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-12 col-md-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             SPRZĘGŁO <br>
                                                         </h5>
                                                         <span style="font-size: 0.7rem;">
-                                                            8 Komponentów
+                                                            Chuj nie sprzęgło
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <span class="badge text-bg-primary rounded-pill">
-                                                            <i class="fa-solid fa-cube"></i> ~ 3h
+                                                    <div class="col-12 col-md-6 text-center">
+                                                        <span class="badge text-bg-primary rounded-pill px-4 py-2 position-relative">
+                                                            <i class="fa-solid fa-cube"></i> 30h 
+                                                            <i class="fa-solid fa-broom ms-3"></i> 0.16mm 
+                                                            <i class="fa-solid fa-weight-hanging ms-3"></i> 10g 
+                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                                                <i class="fa-solid fa-star"></i>
+                                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                <i class="fa-regular fa-star"></i>
+                                                              </span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-12 col-md-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             KOŁA ZĘBATE M5 <br>
                                                         </h5>
@@ -538,23 +525,23 @@
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <span class="badge text-bg-primary rounded-pill">
-                                                            <i class="fa-solid fa-cube"></i> ~ 3h
+                                                    <div class="col-12 col-md-6 text-center">
+                                                        <span class="badge text-bg-primary rounded-pill px-4 py-2 position-relative">
+                                                            <i class="fa-solid fa-cube"></i> 30h 
+                                                            <i class="fa-solid fa-broom ms-3"></i> 0.16mm 
+                                                            <i class="fa-solid fa-weight-hanging ms-3"></i> 10g 
+                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                                                <i class="fa-solid fa-star"></i>
+                                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                <i class="fa-regular fa-star"></i>
+                                                              </span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-12 col-md-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             ROTOR<sub>(A)</sub><br>
                                                         </h5>
@@ -563,23 +550,23 @@
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <span class="badge text-bg-primary rounded-pill">
-                                                            <i class="fa-solid fa-cube"></i> ~ 3h
+                                                    <div class="col-12 col-md-6 text-center">
+                                                        <span class="badge text-bg-primary rounded-pill px-4 py-2 position-relative">
+                                                            <i class="fa-solid fa-cube"></i> 30h 
+                                                            <i class="fa-solid fa-broom ms-3"></i> 0.16mm 
+                                                            <i class="fa-solid fa-weight-hanging ms-3"></i> 10g 
+                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                                                <i class="fa-solid fa-star"></i>
+                                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                <i class="fa-regular fa-star"></i>
+                                                              </span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                                                 <div class="row w-100 align-items-center">
-                                                    <div class="col-5 ps-4 text-primary">
+                                                    <div class="col-12 col-md-6 ps-md-4 text-primary">
                                                         <h5 class="mb-0">
                                                             ROTOR<sub>(B)</sub><br>
                                                         </h5>
@@ -588,16 +575,16 @@
                                                         </span>
                                                         
                                                     </div>
-                                                    <div class="col-3 text-primary text-center">
-                                                        <i>
-                                                            <i class="fa-solid fa-star"></i>
-                                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <span class="badge text-bg-primary rounded-pill">
-                                                            <i class="fa-solid fa-cube"></i> ~ 3h
+                                                    <div class="col-12 col-md-6 text-center">
+                                                        <span class="badge text-bg-primary rounded-pill px-4 py-2 position-relative">
+                                                            <i class="fa-solid fa-cube"></i> 30h 
+                                                            <i class="fa-solid fa-broom ms-3"></i> 0.16mm 
+                                                            <i class="fa-solid fa-weight-hanging ms-3"></i> 10g 
+                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                                                                <i class="fa-solid fa-star"></i>
+                                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                <i class="fa-regular fa-star"></i>
+                                                              </span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -607,19 +594,24 @@
                                 </div>
                             </div>
                         </div>
-
-                        
-                        <p class="text-center mt-5">
-                            Is it a Bird <i class="fa-solid fa-dove fa-bounce"></i> ?
-                             Is it a Plane <i class="fa-solid fa-plane fa-flip"></i> ?<br>
-                             No, it is a T <i class="fa-solid fa-hurricane fa-spin"></i> urbill <i class="fa-solid fa-hurricane fa-spin"></i> n!
-                        </p>
                     </div>
                 </div>
             </div>
         </main>
         <footer>
-            <!-- place footer here -->
+            <p class="text-center text-secondary mt-5" style="transform: scale(-1, 1); color:red;">
+                <i class="fa-solid fa-question fa-rotate-180"></i>
+                Is it a Bird 
+                <i class="fa-solid fa-dove fa-bounce" style="--fa-animation-duration: 3s;"></i> 
+                <i class="fa-solid fa-question"></i>
+                <i class="fa-solid fa-question fa-rotate-180"></i>
+                Is it a Plane <i class="fa-solid fa-plane fa-flip" style="--fa-animation-duration: 3s;"></i>
+                <i class="fa-solid fa-question"></i>
+                <br>
+                Tourbilon sp. bez o.<br>
+                2025
+                <i class="fa-regular fa-copyright fa-rotate-180"></i>
+                </p>
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
         <script
